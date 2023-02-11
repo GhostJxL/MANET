@@ -1,0 +1,28 @@
+# data attribution
+data_dir: /media/lab347-2070s/ab352475-e09a-43b0-9a80-653c8f0c6312/home/lab347/DataSet/meipai/shuffle_data
+
+# model attribution
+modules: scene,tra,mfcc
+in_dims: 2048,2048
+hid_dims: 128,128
+out_dims: 1024
+num_classes: 63
+
+# optimizer attribution
+model: MMDLNetV0
+job_dir: /media/lab347-2070s/ab352475-e09a-43b0-9a80-653c8f0c6312/home/lab347/2020_linjiaxin/MANET/log
+batch_size: 64
+epochs: 50
+learning_rate: 0.01
+# scheduler: ReduceLROnPlateau,30 #SGD,momentum=0.9,weight_decay=0.0001;
+scheduler: MultiStepLR,0.1,45,-1
+optimizer: SGD,0.9,0.0001  #  SGD, betas, weight_decay
+num_workers: 2
+
+use_resume: False 
+resume_dir: /media/lab347-2070s/ab352475-e09a-43b0-9a80-653c8f0c6312/home/lab347/2020_linjiaxin/MANET/log
+checkpoint: best_model_89.92.pth.tar #checkpoint.pth.tar #
+test_only: False #True #
+print_freq: 100
+device: None
+gpu: 0
